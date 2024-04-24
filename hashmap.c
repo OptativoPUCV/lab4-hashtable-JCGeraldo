@@ -46,7 +46,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     if(strcmp(map-> buckets[posicion]-> key, key)==0){
         return;
     }
-    else if(map->buckets[posicion]==NULL)){
+    else if(map->buckets[posicion]==NULL){
         map->buckets[posicion]=createPair(key,value);
         map->size++;
         map->current = posicion;
