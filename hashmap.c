@@ -43,7 +43,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     if(map==NULL || key==NULL) return;
     unsigned long posicion = hash(key,map->capacity);
     
-    if(map->buckets[posicion] -> key ==NULL){
+    if(!map->buckets[posicion]){
         map->buckets[posicion]=createPair(key,value);
         map->size++;
         map->current = posicion;
