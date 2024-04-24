@@ -46,3 +46,23 @@ hashmap.c:59:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member n
 cc1: all warnings being treated as errors
 Compilation failed
 d1bb78e
+Wed 24 Apr 2024 01:41:33 AM UTC: 
+ hashmap.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:49:42: error: expected statement before ‘)’ token
+   49 |     else if(map->buckets[posicion]==NULL)){
+      |                                          ^
+hashmap.c:49:5: error: this ‘else’ clause does not guard... [-Werror=misleading-indentation]
+   49 |     else if(map->buckets[posicion]==NULL)){
+      |     ^~~~
+hashmap.c:49:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   49 |     else if(map->buckets[posicion]==NULL)){
+      |                                           ^
+hashmap.c:55:5: error: ‘else’ without a previous ‘if’
+   55 |     else{
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3a8afa7

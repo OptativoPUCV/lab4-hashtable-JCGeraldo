@@ -43,20 +43,20 @@ void insertMap(HashMap * map, char * key, void * value) {
     if(map==NULL || key==NULL) return;
     if(map->size==map->capacity)enlarge(map);
     unsigned long posicion = hash(key,map->capacity);
-    if(strcmp(map-> Pair[posicion]-> key, key)==0){
+    if(strcmp(map-> buckets[posicion]-> key, key)==0){
         return;
     }
-    else if(map->Pair[posicion]==NULL)){
-        map->Pair[posicion]=createPair(key,value);
+    else if(map->buckets[posicion]==NULL)){
+        map->buckets[posicion]=createPair(key,value);
         map->size++;
         map->current = posicion;
         return;
     }
     else{
-        while(map->Pair[posicion]!=NULL){
+        while(map->buckets[posicion]!=NULL){
             posicion++;
-            if(map->Pair[posicion] ==NULL){
-                map->Pair[posicion]=createPair(key,value);
+            if(map->buckets[posicion] ==NULL){
+                map->buckets[posicion]=createPair(key,value);
                 map->size++;
                 map->current = posicion;
                 return;
