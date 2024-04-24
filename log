@@ -8,3 +8,41 @@ Wed 24 Apr 2024 01:03:25 AM UTC:
  tests:  1|5
 total_score: 10/70
 3d71d6c
+Wed 24 Apr 2024 01:39:27 AM UTC: 
+ hashmap.c | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:46:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   46 |     if(strcmp(map-> Pair[posicion]-> key, key)==0){
+      |                  ^~
+hashmap.c:49:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   49 |     else if(map->Pair[posicion]==NULL)){
+      |                ^~
+hashmap.c:49:39: error: expected statement before ‘)’ token
+   49 |     else if(map->Pair[posicion]==NULL)){
+      |                                       ^
+hashmap.c:49:5: error: this ‘else’ clause does not guard... [-Werror=misleading-indentation]
+   49 |     else if(map->Pair[posicion]==NULL)){
+      |     ^~~~
+hashmap.c:49:40: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+   49 |     else if(map->Pair[posicion]==NULL)){
+      |                                        ^
+hashmap.c:50:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   50 |         map->Pair[posicion]=createPair(key,value);
+      |            ^~
+hashmap.c:55:5: error: ‘else’ without a previous ‘if’
+   55 |     else{
+      |     ^~~~
+hashmap.c:56:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   56 |         while(map->Pair[posicion]!=NULL){
+      |                  ^~
+hashmap.c:58:19: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   58 |             if(map->Pair[posicion] ==NULL){
+      |                   ^~
+hashmap.c:59:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘Pair’
+   59 |                 map->Pair[posicion]=createPair(key,value);
+      |                    ^~
+cc1: all warnings being treated as errors
+Compilation failed
+d1bb78e
