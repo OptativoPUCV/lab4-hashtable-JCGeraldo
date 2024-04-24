@@ -50,7 +50,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         return;
     }
     else{
-        while(map->buckets[posicion]->key!=NULL){
+        while(map->buckets[posicion]{
             posicion++;
             if(map->buckets[posicion]->key ==NULL){
                 map->buckets[posicion]=createPair(key,value);
