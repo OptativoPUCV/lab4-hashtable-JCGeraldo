@@ -82,9 +82,29 @@ HashMap * createMap(long capacity) {
     return map;
 }
 
-void eraseMap(HashMap * map,  char * key) {    
-
-
+void eraseMap(HashMap * map,  char * key) { 
+    if(map==NULL || key==NULL) return;
+    unsigned long posicion = hash(key,map->capacity);
+    unsigned long posicionFija = posicion;
+    if(map->buckets[posicion] && is_equal(map->buckets[posicion]->key,key)){
+        map->buckets[posicion]->key = NULL;
+        map->size--;
+        return;
+    }
+    else{
+        do{
+            posicion++;
+            if(posicion == map->capacity) posicion = 0;
+            if(map->buckets[posicion] && is_equal(map->buckets[posicion]->key,key)){
+                map->buckets[posicion]->key = NULL;
+                map->size--;
+                return;
+            }
+            
+        }while(map->buckets[posicion] && posicion != posicionFija);
+    }
+    return;
+    
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
